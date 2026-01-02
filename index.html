@@ -138,7 +138,7 @@
         /* --- GRILLE DES ARTICLES --- */
         .articles-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Légèrement élargi pour 6 articles */
             gap: 20px;
         }
 
@@ -146,13 +146,15 @@
             background: transparent;
             padding: 15px;
             border-right: 1px solid var(--ink-color);
+            border-bottom: 1px solid #ddd; /* Ajout ligne séparation horizontale */
             cursor: pointer;
             transition: background 0.3s;
             position: relative;
         }
 
-        .article-card:last-child {
-            border-right: none;
+        /* Enlever la bordure droite pour le dernier élément de chaque ligne (approx) */
+        .article-card:nth-child(even) {
+             /* border-right: none; si on veut 2 colonnes strictes, sinon laisser tel quel pour style vrac */
         }
 
         .article-card:hover {
@@ -189,7 +191,6 @@
             line-height: 1.5;
         }
 
-        /* Style pour le texte "Cliquez pour la suite" */
         .click-cta {
             font-family: 'Playfair Display', serif;
             font-size: 0.9rem;
@@ -272,6 +273,22 @@
             box-shadow: 0 0 5px rgba(0,0,0,0.5);
         }
 
+        .interview-intro {
+            text-align: center; 
+            font-style: italic; 
+            font-weight: bold;
+            border-bottom: 1px solid #aaa;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .question {
+            font-weight: bold;
+            margin-top: 20px;
+            display: block;
+        }
+
         footer {
             text-align: center; 
             margin-top: 40px; 
@@ -296,7 +313,7 @@
         <header>
             <h1>Le Petit Germinal Illustré</h1>
             <div class="meta-info">
-                <span>N° 62118 - Édition Spéciale</span>
+              <span>N° 62118 - Édition Spéciale</span>
                 <span>Biache-Saint-Vaast, 2025-2026</span>
                 <span>Prix : Gratuit</span>
             </div>
@@ -323,7 +340,7 @@
             
             <!-- ARTICLE 1 -->
             <div class="article-card" onclick="openModal('modal1')">
-                <span class="author">Par notre envoyée J. Ramond (6B)</span>
+                <span class="author">Par notre envoyée Justine Ramond (6e B)</span>
                 <div class="article-title">Panique à l'usine !</div>
                 <p>M. Gérard Billet travaillait à la programmation lorsque l'usine s'agrandissait. Il nous livre un récit exclusif du jour où la machine "Skin Pass" a dû s'arrêter...</p>
                 <span class="click-cta">(Cliquez pour la suite)</span>
@@ -332,7 +349,7 @@
 
             <!-- ARTICLE 2 -->
             <div class="article-card" onclick="openModal('modal2')">
-                <span class="author">Par L. Musial (6H) & T. Mathieux (6A)</span>
+                <span class="author">Par nos envoyés  Léo Musial (6e H) & Timéo Mathieux (6e A)</span>
                 <div class="article-title">Le Printemps de l'Archéologie</div>
                 <p>Mme Annie Lemoine et Henri Pernes se souviennent. Il faisait beau, il faisait chaud, et tout le village découvrait soudainement ses lointains ancêtres.</p>
                 <span class="click-cta">(Cliquez pour la suite)</span>
@@ -341,18 +358,36 @@
 
             <!-- ARTICLE 3 -->
             <div class="article-card" onclick="openModal('modal3')">
-                <span class="author">Par R. Pierret (6B)</span>
+                <span class="author">Par notre envoyée Romane Pierret (6e B)</span>
                 <div class="article-title">Dans la boue des fouilles</div>
-                <p>Camping précaire, bénévoles étudiants et dents de rhinocéros. Yvon Henel raconte ses vacances d'été laborieuses au service de la science.</p>
+                <p>Camping précaire, bénévoles étudiants et dents de rhinocéros. L'histoire incroyable des fouilles racontée par Alain Tuffreau.</p>
                 <span class="click-cta">(Cliquez pour la suite)</span>
                 <div class="read-more-symbol">❧</div>
             </div>
 
             <!-- ARTICLE 4 -->
             <div class="article-card" onclick="openModal('modal4')">
-                <span class="author">Par J. Vasez (6A)</span>
+                <span class="author">Par notre envoyée Justine Vasez (6e A)</span>
                 <div class="article-title">Témoignage d'un ouvrier</div>
                 <p>M. Bernard n'avait que 20 ans. "On a trouvé des objets anciens", lui a dit un camarade. Il a vu les silex de ses propres yeux.</p>
+                <span class="click-cta">(Cliquez pour la suite)</span>
+                <div class="read-more-symbol">❧</div>
+            </div>
+
+            <!-- ARTICLE 5 -->
+            <div class="article-card" onclick="openModal('modal5')">
+                <span class="author">Par notre envoyée Romane Pierret (6e B)</span>
+                <div class="article-title">Les souvenirs de Didier Marécaux</div>
+                <p>Didier Marécaux avait une quinzaine d'année et se souvient: "Ça se passait sur un terrain qu’on appelait "le bois du pendu", on y faisait du motocross!</p>
+                <span class="click-cta">(Cliquez pour la suite)</span>
+                <div class="read-more-symbol">❧</div>
+            </div>
+
+            <!-- ARTICLE 6 -->
+            <div class="article-card" onclick="openModal('modal6')">
+                <span class="author">Par notre envoyée Romane Pierret (6e B)</span>
+                <div class="article-title">L'étudiant bénévole</div>
+                <p>Yvon Henel avait 20 ans. Logé à l'école, sans salaire, il a passé son été à gratter la terre de l'usine. "C'était méticuleux", raconte-t-il.</p>
                 <span class="click-cta">(Cliquez pour la suite)</span>
                 <div class="read-more-symbol">❧</div>
             </div>
@@ -360,7 +395,7 @@
         </section>
 
         <footer>
-            <p>Imprimerie du Collège - Le Petit Germinal Illustré - Reproduction Interdite - Rédacteurs en chef: C. Molinaro & E.Pruvost </p>
+             <p>Imprimerie du Collège - Le Petit Germinal Illustré - Reproduction Interdite - Rédacteurs en chef: C. Molinaro & E.Pruvost </p>
         </footer>
     </div>
 
@@ -371,7 +406,7 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
             <h2>"On installait une machine... on a trouvé des os"</h2>
-            <p style="text-align: center; font-style: italic;"></p>
+            <p style="text-align: center; font-style: italic;">Propos recueillis par Justine Ramond (6e B)</p>
             
             <p>C'était un jour de mai 1976. L'usine sidérurgique tournait à plein régime. M. Gérard Billet, qui travaillait au bureau de fabrication, se souvient très bien de ce moment fatidique.</p>
             
@@ -391,16 +426,34 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal2')">&times;</span>
             <h2>Un trésor de 175 000 ans</h2>
-            
-            <p>Mme Annie Lemoine, aujourd'hui maire, était jeune professeure à l'époque. Elle se souvient de l'atmosphère effervescente de ce mois de mai.</p>
+              <p style="text-align: center; font-style: italic;">Léo Musial (6e H) & Timéo Mathieux (6e A)</p>
+            <p>Léo Musial: "Mme Annie Lemoine, aujourd'hui maire, était jeune professeure à l'époque. Elle se souvient de l'atmosphère effervescente de ce mois de mai."</p>
             
             <div class="quote">
-                « Il faisait beau et chaud sur le chantier. Devant le bâtiment de la tôlerie, les travaux ont duré environ 3 mois. »
+                « Il faisait beau et chaud sur le chantier. Devant le bâtiment de la tôlerie, les travaux ont duré environ 3 mois. Des crânes humains et des dents ont été retrouvés au milieu d'ossements d'animaux disparus. Le responsable des fouilles était un archéologue de Douai, Alain Tuffreau, aidé par des archéologues de Paris. Ils ont déjeuné au restaurant scolaire du collège. »
             </div>
 
             <img src="Ossements.jpg" alt="Ossements">
             
-            <p>Henri Pernes ajoute avec fierté : « Ce sont les plus anciens restes humains trouvés dans le nord de la France. Ils montrent que des Néandertaliens vivaient déjà ici, bravant le froid, fabriquant leurs outils. »</p>
+            <p> Timéo Mathieux a recueilli les souvenirs d'Henri Pernes</p>
+
+<p>« Tout a commencé au printemps 1976, quand des ouvriers ont trouvé des ossements étranges en creusant pour construire une usine. Très vite, des archéologues sont arrivés pour comprendre ce qui se passait. »</p>
+
+<p>« Les fouilles ont été dirigées par Alain Tuffreau et son équipe. C’étaient des fouilles de sauvetage, menées dans l’urgence. On a alors découvert des outils en silex, des restes d’animaux disparus, comme le mammouth, et surtout des restes humains. »</p>
+
+<div class="quote">
+    « Le premier crâne néandertalien a été identifié en 1976, et le second seulement dix ans plus tard, en 1986, après de longues années d’analyses. »
+</div>
+
+<p>« Ces vestiges sont exceptionnels : ce sont les plus anciens restes humains jamais retrouvés dans le nord de la France. Ils prouvent que des Néandertaliens vivaient ici, malgré le froid, et qu’ils fabriquaient déjà leurs propres outils. »</p>
+
+<p>« La découverte a fait beaucoup de bruit. Des chercheurs sont venus de toute la France pour étudier le site, et Biache-Saint-Vaast est devenu un lieu important pour comprendre la vie de nos ancêtres. »</p>
+
+<p>« Pour nous, habitants du village, c’était une immense fierté. On réalisait que notre territoire faisait partie de la grande histoire de l’humanité. »</p>
+
+<div class="quote">
+    « C’est important de se souvenir que nos racines remontent très loin et que notre région a joué un rôle dans la grande aventure humaine. »
+</div>
         </div>
     </div>
 
@@ -408,18 +461,29 @@
     <div id="modal3" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal3')">&times;</span>
-            <h2>L'été des fouilles</h2>
-
-            <p>Le site, surnommé le "bois du pendu", est vite devenu le centre d'attention. M. Henel raconte : « C'était un truc de fou : il y avait du monde de Paris, des journalistes... »</p>
-
-            <img src="Bénévoles.jpg" alt="Les bénévoles au travail">
+            <h2>Notre envoyée spéciale R. Pierret (6e B) nous raconte l'été des fouilles</h2>
             
-            <p>Yvon Henel se souvient de l'été 1978 :</p>
+            <p class="interview-intro">Interview exclusive "L'Homme de Biache raconté par Alain Tuffreau"</p>
+
+            <p>« Il y avait des travaux dans l'usine de sidérurgie de Biache pour agrandir les bâtiments qui abritaient les fours. Lors de ces travaux, des ouvriers ont vu qu'il y avait des ossements d'animaux qui apparaissaient et l'un d'eux a averti de façon anonyme le service des affaires culturelles de la région Nord-Pas-de-Calais. »</p>
+            
+            <p>« C'est comme ça que j'ai été envoyé là-bas en avril 1976. Je venais de rentrer au CNRS (Centre national de la recherche scientifique) quelques mois plus tôt, j'étais au début de ma carrière scientifique. J'ai donc obtenu un délai d'une semaine pour faire les fouilles. Au bout de 3-4 jours, on a trouvé des dents humaines. C'est comme ça qu'on a vu qu'il y avait des restes d'un crâne humain et qu'on a pu déclencher la fouille de sauvetage. »</p>
+
+            <img src="Bénévoles.jpg" alt="Les fouilles">
+            
+            <p>« Les conditions étaient difficiles car les travaux de l'usine continuaient et l'archéologie à l'époque n'avait pas les mêmes moyens qu'aujourd'hui. Comme on était sur un terrain privé, on pouvait être viré du jour au lendemain. »</p>
+
             <div class="quote">
-                « On logeait dans une école, on dormait sur le plancher. C'était très méticuleux. J'ai trouvé une pointe de flèche et une dent de rhinocéros laineux ! »
+                « D'ailleurs, à la mi-août 1976, on a été éjecté en 24 heures et plein de vestiges ont été détruits à la pelle mécanique. »
             </div>
-            
-            <img src="Silex.jpg" alt="Croquis silex">
+
+            <p>« On a négocié avec la direction de l'usine et j'ai pu refaire des fouilles à côté du bâtiment construit, de 1977 à 1982. On a trouvé plusieurs tonnes d'ossements d'animaux mais aussi des outils de silex taillés. Les hommes venaient chasser les animaux qui venaient s'abreuver au bord de la rivière de la Scarpe entre 240 000 et 170 000 ans avant J.-C. pour les consommer. »</p>
+
+            <img src="Silex.jpg" alt="Silex">
+
+            <p>« Une partie de ces ossements a été emmenée au Muséum national d'histoire naturelle de Paris pour être stockés. Au bout de quelques années, un professeur a confié leur traitement à un étudiant. C'est comme ça qu'a été découvert le deuxième crâne. On ne l'avait pas vu au moment de la fouille parce qu'il était en morceaux, au milieu des ossements d'animaux.</p>
+
+            <p>À Biache, on a donc découvert deux crânes humains : celui d'un individu de sexe féminin assez jeune et celui d'un individu de sexe masculin plus vieux. Ils sont maintenant au Musée d'archéologie nationale de Saint-Germain-en-Laye. »</p>
         </div>
     </div>
 
@@ -428,7 +492,7 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal4')">&times;</span>
             <h2>Des pierres taillées</h2>
-            
+            <p style="text-align: center; font-style: italic;">Propos recueillis par Justine Vasez (6e A)</p>
             <p>M. Bernard, ouvrier de 20 ans à l'époque, a eu le privilège de voir les outils de près.</p>
             
             <div class="quote">
@@ -437,6 +501,57 @@
 
             <img src="Evolution.jpg" alt="Schéma évolution">
             <p class="caption">L'Homme de Biache : un maillon essentiel de notre histoire.</p>
+        </div>
+    </div>
+
+    <!-- MODALE 5 -->
+    <div id="modal5" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal5')">&times;</span>
+            <h2>Les souvenirs de Didier Marécaux</h2>
+            <p class="interview-intro">Propos recueillis par Romane Pierret (6e B)</p>
+            
+      <p>« C’est en creusant la terre pour agrandir l’usine Sollac, qui s’appelait à l’époque les Forges de Châtillon-Commentry, qu’ils sont tombés sur des os d’animaux. Il y en avait des sacs entiers. »</p>
+
+<p>« À cette époque-là, j’avais une quinzaine d’années. Le chantier se trouvait sur un terrain qu’on appelait le “bois du pendu”. On y faisait du motocross. À cet endroit, il y avait autrefois une rivière qui alimentait le marais de Vitry. D’ailleurs, il y a encore des roseaux aujourd’hui. »</p>
+
+<p>« C’est un ouvrier de l’usine qui a donné l’alerte. Très vite, tout Biache a été au courant. À l’époque, il y avait une cinquantaine de bistrots dans le village, donc l’information a circulé rapidement. »</p>
+
+<div class="quote">
+    « Les jeunes qui venaient fouiller étaient logés à l’école Ferry, l’ancienne école juste en face de la mairie. »
+</div>
+
+<p>« C’était incroyable. Il y avait du monde qui venait de Paris et de partout : des journalistes, des scientifiques… Je crois même que le Président de la République est venu. »</p>
+
+<p>« Le site était tellement important que des policiers montaient la garde. Tout le monde pouvait y accéder, alors il fallait surveiller les fouilles. »</p>
+
+    </div>
+</div> 
+    <!-- MODALE 6 -->
+    <div id="modal6" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal6')">&times;</span>
+            <h2>L'Homme de Biache raconté par Yvon HENEL</h2>
+            <p class="interview-intro">Propos recueillis par Romane PIERRET (6e B)</p>
+
+            <p>« J’ai participé aux fouilles en 1978 ou 1979, certainement en août. J’avais 20 ou 21 ans. C’était une usine, je ne sais plus très bien laquelle, et on a travaillé sur quelque chose qui avait déjà été creusé et quand je suis arrivé, il y avait déjà une bonne partie de la terre qui avait été enlevée. »</p>
+
+            <p>« On a trouvé une pointe de flèche, c’était un tout petit bout de silex taillé, et une dent de rhinocéros laineux. C’est le responsable des fouilles qui nous a dit ce que c’était. On enlevait beaucoup de terre avec pas grand-chose dedans. »</p>
+            
+            <!-- Réutilisation de l'image silex pour illustrer -->
+            <img src="Silex.jpg" alt="Pointe de silex">
+
+            <p>« C’était très méticuleux, parce que tout était quadrillé. Quand on trouvait quelque chose, il fallait écrire dans un cahier de description. Sur l’objet nettoyé, on écrivait à l’encre de Chine un numéro, il fallait être assez attentif. C’est vrai que c’était impressionnant. »</p>
+
+            <p>« On devait être une bonne dizaine, je pense. Je faisais ça parce qu’à l’époque, l’archéologie m’intéressait et que c’était un moyen de m’occuper pendant les vacances, parce que j’étais étudiant. Mais je n’ai jamais eu envie d’être archéologue. Je suis resté une ou deux semaines là-bas. On logeait dans une école qui n’était pas très loin. Il fallait ramener son sac de couchage et je crois qu’on dormait carrément sur le plancher. »</p>
+
+            <div class="quote">
+                « Des gens qui voulaient aller travailler dans une usine à Biache, au mois d’août, sans être payé, il n’y en avait pas beaucoup ! »
+            </div>
+
+            <p>« À l’époque, je lisais des mensuels. Il y en avait un qui s’appelait <em>Archéologia</em> et dans lequel il y avait des annonces pour les gens qui voulaient participer à des fouilles. Alors j’ai été pris. »</p>
+            
+            <p>« Je me souviens qu’on mangeait dans un café-restaurant, je m’étais baladé aussi un peu dans Biache parce qu’on ne travaillait pas toute la journée. Et ce que j’ai su par le responsable des fouilles, c’est qu’on était à un endroit qui avait été occupé pendant très longtemps par des hommes préhistoriques qui revenaient chaque année à cet endroit-là pour chasser. »</p>
         </div>
     </div>
 
