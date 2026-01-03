@@ -152,7 +152,6 @@
             position: relative;
         }
 
-        /* Enlever la bordure droite pour le dernier élément de chaque ligne (approx) */
         .article-card:nth-child(even) {
              /* border-right: none; si on veut 2 colonnes strictes, sinon laisser tel quel pour style vrac */
         }
@@ -266,8 +265,15 @@
             text-align: center;
         }
 
-        .modal-body img {
-            width: 100%;
+        /* --- CORRECTION DES IMAGES DANS LES MODALES --- */
+        /* C'est ici que l'ajustement se fait */
+        .modal-content img {
+            max-width: 100%;       /* Ne dépasse pas la largeur */
+            height: auto;          /* Garde les proportions */
+            max-height: 60vh;      /* Limite la hauteur à 60% de l'écran pour éviter de scroller trop */
+            object-fit: contain;   /* L'image reste entière dans son cadre */
+            display: block;
+            margin: 20px auto;     /* Centre l'image */
             filter: grayscale(100%) contrast(120%);
             border: 5px solid white;
             box-shadow: 0 0 5px rgba(0,0,0,0.5);
@@ -319,7 +325,6 @@
             </div>
         </header>
 
-        <!-- SECTION A LA UNE -->
         <section class="hero">
             <div class="hero-text">
                 <h2>EXTRAORDINAIRE DÉCOUVERTE !</h2>
@@ -329,16 +334,13 @@
                 </div>
             </div>
             <div class="photo-frame">
-                <!-- Image principale -->
                 <img src="equipe.jpg" alt="L'équipe d'archéologues">
                 <div class="caption">Fig 1. L'équipe du professeur Tuffreau examine les découvertes sous la serre de fortune.</div>
             </div>
         </section>
 
-        <!-- GRILLE DES ARTICLES -->
         <section class="articles-grid">
             
-            <!-- ARTICLE 1 -->
             <div class="article-card" onclick="openModal('modal1')">
                 <span class="author">Par notre envoyée Justine Ramond (6e B)</span>
                 <div class="article-title">Panique à l'usine !</div>
@@ -347,7 +349,6 @@
                 <div class="read-more-symbol">❧</div>
             </div>
 
-            <!-- ARTICLE 2 -->
             <div class="article-card" onclick="openModal('modal2')">
                 <span class="author">Par nos envoyés  Léo Musial (6e H) & Timéo Mathieux (6e A)</span>
                 <div class="article-title">Le Printemps de l'Archéologie</div>
@@ -356,7 +357,6 @@
                 <div class="read-more-symbol">❧</div>
             </div>
 
-            <!-- ARTICLE 3 -->
             <div class="article-card" onclick="openModal('modal3')">
                 <span class="author">Par notre envoyée Romane Pierret (6e B)</span>
                 <div class="article-title">Dans la boue des fouilles</div>
@@ -365,7 +365,6 @@
                 <div class="read-more-symbol">❧</div>
             </div>
 
-            <!-- ARTICLE 4 -->
             <div class="article-card" onclick="openModal('modal4')">
                 <span class="author">Par notre envoyée Justine Vasez (6e A)</span>
                 <div class="article-title">Témoignage d'un ouvrier</div>
@@ -374,7 +373,6 @@
                 <div class="read-more-symbol">❧</div>
             </div>
 
-            <!-- ARTICLE 5 -->
             <div class="article-card" onclick="openModal('modal5')">
                 <span class="author">Par notre envoyée Romane Pierret (6e B)</span>
                 <div class="article-title">Les souvenirs de Didier Marécaux</div>
@@ -383,7 +381,6 @@
                 <div class="read-more-symbol">❧</div>
             </div>
 
-            <!-- ARTICLE 6 -->
             <div class="article-card" onclick="openModal('modal6')">
                 <span class="author">Par notre envoyée Romane Pierret (6e B)</span>
                 <div class="article-title">L'étudiant bénévole</div>
@@ -399,9 +396,6 @@
         </footer>
     </div>
 
-    <!-- --- MODALES (CONTENU CACHÉ) --- -->
-
-    <!-- MODALE 1 -->
     <div id="modal1" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
@@ -421,7 +415,6 @@
         </div>
     </div>
 
-    <!-- MODALE 2 -->
     <div id="modal2" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal2')">&times;</span>
@@ -437,27 +430,26 @@
             
             <p> Timéo Mathieux a recueilli les souvenirs d'Henri Pernes</p>
 
-<p>« Tout a commencé au printemps 1976, quand des ouvriers ont trouvé des ossements étranges en creusant pour construire une usine. Très vite, des archéologues sont arrivés pour comprendre ce qui se passait. »</p>
+            <p>« Tout a commencé au printemps 1976, quand des ouvriers ont trouvé des ossements étranges en creusant pour construire une usine. Très vite, des archéologues sont arrivés pour comprendre ce qui se passait. »</p>
 
-<p>« Les fouilles ont été dirigées par Alain Tuffreau et son équipe. C’étaient des fouilles de sauvetage, menées dans l’urgence. On a alors découvert des outils en silex, des restes d’animaux disparus, comme le mammouth, et surtout des restes humains. »</p>
+            <p>« Les fouilles ont été dirigées par Alain Tuffreau et son équipe. C’étaient des fouilles de sauvetage, menées dans l’urgence. On a alors découvert des outils en silex, des restes d’animaux disparus, comme le mammouth, et surtout des restes humains. »</p>
 
-<div class="quote">
-    « Le premier crâne néandertalien a été identifié en 1976, et le second seulement dix ans plus tard, en 1986, après de longues années d’analyses. »
-</div>
+            <div class="quote">
+                « Le premier crâne néandertalien a été identifié en 1976, et le second seulement dix ans plus tard, en 1986, après de longues années d’analyses. »
+            </div>
 
-<p>« Ces vestiges sont exceptionnels : ce sont les plus anciens restes humains jamais retrouvés dans le nord de la France. Ils prouvent que des Néandertaliens vivaient ici, malgré le froid, et qu’ils fabriquaient déjà leurs propres outils. »</p>
+            <p>« Ces vestiges sont exceptionnels : ce sont les plus anciens restes humains jamais retrouvés dans le nord de la France. Ils prouvent que des Néandertaliens vivaient ici, malgré le froid, et qu’ils fabriquaient déjà leurs propres outils. »</p>
 
-<p>« La découverte a fait beaucoup de bruit. Des chercheurs sont venus de toute la France pour étudier le site, et Biache-Saint-Vaast est devenu un lieu important pour comprendre la vie de nos ancêtres. »</p>
+            <p>« La découverte a fait beaucoup de bruit. Des chercheurs sont venus de toute la France pour étudier le site, et Biache-Saint-Vaast est devenu un lieu important pour comprendre la vie de nos ancêtres. »</p>
 
-<p>« Pour nous, habitants du village, c’était une immense fierté. On réalisait que notre territoire faisait partie de la grande histoire de l’humanité. »</p>
+            <p>« Pour nous, habitants du village, c’était une immense fierté. On réalisait que notre territoire faisait partie de la grande histoire de l’humanité. »</p>
 
-<div class="quote">
-    « C’est important de se souvenir que nos racines remontent très loin et que notre région a joué un rôle dans la grande aventure humaine. »
-</div>
+            <div class="quote">
+                « C’est important de se souvenir que nos racines remontent très loin et que notre région a joué un rôle dans la grande aventure humaine. »
+            </div>
         </div>
     </div>
 
-    <!-- MODALE 3 -->
     <div id="modal3" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal3')">&times;</span>
@@ -487,7 +479,6 @@
         </div>
     </div>
 
-    <!-- MODALE 4 -->
     <div id="modal4" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal4')">&times;</span>
@@ -504,30 +495,28 @@
         </div>
     </div>
 
-    <!-- MODALE 5 -->
     <div id="modal5" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal5')">&times;</span>
             <h2>Les souvenirs de Didier Marécaux</h2>
             <p class="interview-intro">Propos recueillis par Romane Pierret (6e B)</p>
             
-      <p>« C’est en creusant la terre pour agrandir l’usine Sollac, qui s’appelait à l’époque les Forges de Châtillon-Commentry, qu’ils sont tombés sur des os d’animaux. Il y en avait des sacs entiers. »</p>
+            <p>« C’est en creusant la terre pour agrandir l’usine Sollac, qui s’appelait à l’époque les Forges de Châtillon-Commentry, qu’ils sont tombés sur des os d’animaux. Il y en avait des sacs entiers. »</p>
 
-<p>« À cette époque-là, j’avais une quinzaine d’années. Le chantier se trouvait sur un terrain qu’on appelait le “bois du pendu”. On y faisait du motocross. À cet endroit, il y avait autrefois une rivière qui alimentait le marais de Vitry. D’ailleurs, il y a encore des roseaux aujourd’hui. »</p>
+            <p>« À cette époque-là, j’avais une quinzaine d’années. Le chantier se trouvait sur un terrain qu’on appelait le “bois du pendu”. On y faisait du motocross. À cet endroit, il y avait autrefois une rivière qui alimentait le marais de Vitry. D’ailleurs, il y a encore des roseaux aujourd’hui. »</p>
 
-<p>« C’est un ouvrier de l’usine qui a donné l’alerte. Très vite, tout Biache a été au courant. À l’époque, il y avait une cinquantaine de bistrots dans le village, donc l’information a circulé rapidement. »</p>
+            <p>« C’est un ouvrier de l’usine qui a donné l’alerte. Très vite, tout Biache a été au courant. À l’époque, il y avait une cinquantaine de bistrots dans le village, donc l’information a circulé rapidement. »</p>
 
-<div class="quote">
-    « Les jeunes qui venaient fouiller étaient logés à l’école Ferry, l’ancienne école juste en face de la mairie. »
-</div>
+            <div class="quote">
+                « Les jeunes qui venaient fouiller étaient logés à l’école Ferry, l’ancienne école juste en face de la mairie. »
+            </div>
 
-<p>« C’était incroyable. Il y avait du monde qui venait de Paris et de partout : des journalistes, des scientifiques… Je crois même que le Président de la République est venu. »</p>
+            <p>« C’était incroyable. Il y avait du monde qui venait de Paris et de partout : des journalistes, des scientifiques… Je crois même que le Président de la République est venu. »</p>
 
-<p>« Le site était tellement important que des policiers montaient la garde. Tout le monde pouvait y accéder, alors il fallait surveiller les fouilles. »</p>
-
-    </div>
-</div> 
-    <!-- MODALE 6 -->
+            <p>« Le site était tellement important que des policiers montaient la garde. Tout le monde pouvait y accéder, alors il fallait surveiller les fouilles. »</p>
+        </div>
+    </div> 
+    
     <div id="modal6" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal6')">&times;</span>
@@ -538,7 +527,6 @@
 
             <p>« On a trouvé une pointe de flèche, c’était un tout petit bout de silex taillé, et une dent de rhinocéros laineux. C’est le responsable des fouilles qui nous a dit ce que c’était. On enlevait beaucoup de terre avec pas grand-chose dedans. »</p>
             
-            <!-- Réutilisation de l'image silex pour illustrer -->
             <img src="Silex.jpg" alt="Pointe de silex">
 
             <p>« C’était très méticuleux, parce que tout était quadrillé. Quand on trouvait quelque chose, il fallait écrire dans un cahier de description. Sur l’objet nettoyé, on écrivait à l’encre de Chine un numéro, il fallait être assez attentif. C’est vrai que c’était impressionnant. »</p>
